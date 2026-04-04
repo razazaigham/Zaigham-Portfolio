@@ -123,6 +123,51 @@ a:hover {
   z-index: 1;
 }
 
+.hero-layout {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .hero-layout {
+    grid-template-columns: minmax(200px, 280px) 1fr;
+    gap: clamp(2rem, 5vw, 3.5rem);
+  }
+}
+
+.hero-photo {
+  justify-self: center;
+}
+
+@media (min-width: 768px) {
+  .hero-photo {
+    justify-self: start;
+  }
+}
+
+.hero-photo-img {
+  display: block;
+  width: min(100%, 260px);
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  background: var(--bg-surface);
+}
+
+@media (min-width: 768px) {
+  .hero-photo-img {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+.hero-copy {
+  min-width: 0;
+}
+
 .hero-glow {
   position: absolute;
   top: -20%;
