@@ -37,7 +37,7 @@
       play.href = g.playUrl;
       play.target = "_blank";
       play.rel = "noopener noreferrer";
-      play.textContent = "Play";
+      play.textContent = g.linkLabel || "Play";
       header.appendChild(play);
     } else {
       var badge = document.createElement("span");

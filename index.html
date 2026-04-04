@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ho<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -39,8 +39,8 @@
               <img
                 class="hero-photo-img"
                 src="images/profile.jpg"
-                width="560"
-                height="700"
+                width="400"
+                height="400"
                 decoding="async"
                 alt="M. Zaigham Raza"
                 onerror="this.onerror=null;this.src='images/profile-placeholder.svg'"
@@ -85,12 +85,40 @@
         </div>
       </section>
 
+      <section
+        class="project-strip-section"
+        id="project-strip"
+        aria-labelledby="project-strip-heading"
+      >
+        <div class="container project-strip-header">
+          <p class="project-strip-eyebrow">Quick access</p>
+          <h2 id="project-strip-heading" class="project-strip-title">
+            Shipped projects
+          </h2>
+          <p class="project-strip-sub">
+            Scroll horizontally. Hover or focus to see the title; open the store
+            listing in a new tab.
+          </p>
+        </div>
+        <div class="project-strip-bleed">
+          <div
+            class="project-strip-scroll"
+            tabindex="0"
+            role="region"
+            aria-label="Shipped projects — horizontal scroll"
+          >
+            <div class="project-strip-track" id="project-strip-track"></div>
+          </div>
+        </div>
+      </section>
+
       <section id="games" class="section games">
         <div class="container">
           <h2 class="section-title">Games</h2>
           <p class="section-intro">
-            Representative samples below—edit <strong>js/games-data.js</strong> to
-            add real titles, screenshots, and store or demo links.
+            Shipped titles on Google Play and the App Store. Each card is one file
+            under <strong>js/games/</strong>; copy
+            <strong>add-new-game.example.js</strong> to add more.
           </p>
           <div id="games-grid" class="games-grid" role="list"></div>
         </div>
@@ -139,7 +167,30 @@
       </div>
     </footer>
 
-    <script src="js/games-data.js"></script>
+    <script src="js/games/init.js"></script>
+    <script src="js/games/perk-tap.js"></script>
+    <script src="js/games/barber-chop.js"></script>
+    <script src="js/games/the-lasgidi-baller.js"></script>
+    <script src="js/games/mighty-noah-bible-runner.js"></script>
+    <script src="js/games/lyrics-star.js"></script>
+    <script src="js/games/havoc-cat.js"></script>
+    <script src="js/games/color-kaboom.js"></script>
+    <script src="js/games/naija-drive.js"></script>
+    <script src="js/games/trippy-trunkz.js"></script>
+    <script src="js/games/bunnigotchi.js"></script>
+    <script src="js/games/mystic-gem-quest.js"></script>
+    <script src="js/games/triple-scoop.js"></script>
+    <script src="js/games/paint-war.js"></script>
+    <script src="js/games/brainrot-survival.js"></script>
+    <script src="js/games/super-ghost.js"></script>
+    <script src="js/games/color-arrow.js"></script>
+    <script src="js/games/warped-steel.js"></script>
+    <script src="js/games/jigsaw-epic-clash.js"></script>
+    <script src="js/games/plant-flow.js"></script>
+    <script src="js/games/split-flap.js"></script>
+    <script src="js/games/florida-boy.js"></script>
+    <script src="js/games/boba-quest.js"></script>
+    <script src="js/projects-strip.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
