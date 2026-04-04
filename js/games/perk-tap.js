@@ -4,7 +4,7 @@
     title: "Perk Tap",
     description:
       "Mobile timing and tap gameplay built for quick sessions on the go—polished for Google Play.",
-    image: "https://picsum.photos/seed/perk-tap/800/500",
+    image: "images/games/perk-tap.jpg",
     published: true,
     playUrl:
       "https://play.google.com/store/apps/details?id=com.parktap.mobile" +

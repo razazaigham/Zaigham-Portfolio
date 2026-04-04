@@ -10,9 +10,11 @@
     var card = document.createElement("article");
     card.className = "game-card";
     card.setAttribute("role", "listitem");
+    card.tabIndex = 0;
 
     var media = document.createElement("div");
     media.className = "game-card-media";
+
     var img = document.createElement("img");
     img.src = g.image;
     img.alt = g.title + " screenshot or key art";
@@ -23,13 +25,22 @@
     var body = document.createElement("div");
     body.className = "game-card-body";
 
-    var header = document.createElement("div");
-    header.className = "game-card-header";
+    var titleBar = document.createElement("div");
+    titleBar.className = "game-card-title-bar";
 
     var title = document.createElement("h3");
     title.className = "game-title";
     title.textContent = g.title;
-    header.appendChild(title);
+    titleBar.appendChild(title);
+
+    var expanded = document.createElement("div");
+    expanded.className = "game-card-expanded";
+
+    var expandedInner = document.createElement("div");
+    expandedInner.className = "game-card-expanded-inner";
+
+    var header = document.createElement("div");
+    header.className = "game-card-header";
 
     if (g.published && g.playUrl) {
       var play = document.createElement("a");
@@ -46,12 +57,12 @@
       header.appendChild(badge);
     }
 
+    expandedInner.appendChild(header);
+
     var desc = document.createElement("p");
     desc.className = "game-desc";
     desc.textContent = g.description;
-
-    body.appendChild(header);
-    body.appendChild(desc);
+    expandedInner.appendChild(desc);
 
     var metaParts = [];
     if (g.role) metaParts.push(g.role);
@@ -64,11 +75,14 @@
         li.textContent = part;
         ul.appendChild(li);
       });
-      body.appendChild(ul);
+      expandedInner.appendChild(ul);
     }
 
+    expanded.appendChild(expandedInner);
+    body.appendChild(titleBar);
+    body.appendChild(expanded);
+    media.appendChild(body);
     card.appendChild(media);
-    card.appendChild(body);
     grid.appendChild(card);
   });
 })();
