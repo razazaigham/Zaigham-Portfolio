@@ -3,12 +3,20 @@
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-  var games = window.GAMES || [];
+  var games =
+    typeof window.getGamesSorted === "function"
+      ? window.getGamesSorted()
+      : window.GAMES || [];
   if (!grid || !games.length) return;
 
   games.forEach(function (g) {
+    var isCollection =
+      g.isCollection &&
+      Array.isArray(g.collectionItems) &&
+      g.collectionItems.length > 0;
+
     var card = document.createElement("article");
-    card.className = "game-card";
+    card.className = "game-card" + (isCollection ? " game-card--collection" : "");
     card.setAttribute("role", "listitem");
     card.tabIndex = 0;
 
@@ -17,9 +25,12 @@
 
     var img = document.createElement("img");
     img.src = g.image;
-    img.alt = g.title + " screenshot or key art";
+    img.alt = g.title + (isCollection ? " — project collection" : " screenshot or key art");
     img.loading = "lazy";
     img.decoding = "async";
+    if (/^https?:\/\//i.test(g.image)) {
+      img.referrerPolicy = "no-referrer";
+    }
     media.appendChild(img);
 
     var body = document.createElement("div");
@@ -50,6 +61,11 @@
       play.rel = "noopener noreferrer";
       play.textContent = g.linkLabel || "Play";
       header.appendChild(play);
+    } else if (isCollection) {
+      var offBadge = document.createElement("span");
+      offBadge.className = "game-badge game-badge--offline";
+      offBadge.textContent = "Offline";
+      header.appendChild(offBadge);
     } else {
       var badge = document.createElement("span");
       badge.className = "game-badge";
@@ -59,10 +75,28 @@
 
     expandedInner.appendChild(header);
 
-    var desc = document.createElement("p");
-    desc.className = "game-desc";
-    desc.textContent = g.description;
-    expandedInner.appendChild(desc);
+    if (g.description) {
+      var desc = document.createElement("p");
+      desc.className = "game-desc";
+      desc.textContent = g.description;
+      expandedInner.appendChild(desc);
+    }
+
+    if (isCollection) {
+      var listLabel = document.createElement("p");
+      listLabel.className = "game-collection-label";
+      listLabel.textContent = "Projects in this collection";
+      expandedInner.appendChild(listLabel);
+
+      var collList = document.createElement("ul");
+      collList.className = "game-collection-list";
+      g.collectionItems.forEach(function (name) {
+        var item = document.createElement("li");
+        item.textContent = name;
+        collList.appendChild(item);
+      });
+      expandedInner.appendChild(collList);
+    }
 
     var metaParts = [];
     if (g.role) metaParts.push(g.role);

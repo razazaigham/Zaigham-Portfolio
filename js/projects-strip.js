@@ -1,7 +1,10 @@
 (function () {
   var track = document.getElementById("project-strip-track");
   var section = document.querySelector(".project-strip-section");
-  var games = window.GAMES || [];
+  var games =
+    typeof window.getGamesSorted === "function"
+      ? window.getGamesSorted()
+      : window.GAMES || [];
   if (!track || !section) return;
 
   var count = 0;
@@ -28,6 +31,9 @@
     img.alt = "";
     img.loading = "lazy";
     img.decoding = "async";
+    if (/^https?:\/\//i.test(g.image)) {
+      img.referrerPolicy = "no-referrer";
+    }
 
     var cap = document.createElement("span");
     cap.className = "project-strip-caption";

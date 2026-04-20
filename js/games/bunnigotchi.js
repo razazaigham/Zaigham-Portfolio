@@ -4,7 +4,7 @@
     title: "Bunnigotchi",
     description:
       "Virtual pet-style care loops with light strategy and charming character beats.",
-    image: "https://picsum.photos/seed/bunnigotchi/800/500",
+    image: "images/games/bunnygotchi.png",
     published: true,
     playUrl:
       "https://play.google.com/store/apps/details?id=com.YuehChenKao.Bunnigotchi",

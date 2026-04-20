@@ -4,7 +4,7 @@
     title: "Paint War",
     description:
       "Competitive paint-themed mobile action with bold readability and session-friendly rounds.",
-    image: "https://picsum.photos/seed/paint-war/800/500",
+    image: "images/games/paint-war.png",
     published: true,
     playUrl: "https://apps.apple.com/us/app/paint-war-legends/id6739125634",
     linkLabel: "App Store",
