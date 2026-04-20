@@ -2,6 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- Fix relative URLs on GitHub Pages project sites (e.g. /repo vs /repo/) -->
+    <script>
+      (function () {
+        if (!location.protocol || location.protocol === "file:") return;
+        var p = location.pathname;
+        var href;
+        if (p.endsWith("/")) href = p;
+        else if (/\.html?$/i.test(p)) href = p.slice(0, p.lastIndexOf("/") + 1);
+        else href = p + "/";
+        var b = document.createElement("base");
+        b.href = href;
+        document.head.insertBefore(b, document.head.firstChild);
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
@@ -39,7 +53,7 @@
               <img
                 class="hero-photo-img"
                 src="images/profile.jpg"
-                width="400"
+                width="300"
                 height="400"
                 decoding="async"
                 alt="M. Zaigham Raza"
@@ -123,8 +137,9 @@
         <div class="container">
           <h2 class="section-title">Projects Highlight</h2>
           <p class="section-intro">
-            Some of the projects that I worked on, which some of them can be found on 
-            the Google Play Store and the App Store.
+            Live store titles and offline collections—grouped projects whose listings
+            are no longer active. Hover a card for details; collections list every title
+            in the batch.
           </p>
           <div id="games-grid" class="games-grid" role="list"></div>
         </div>
@@ -170,6 +185,10 @@
       </div>
     </footer>
 
+    <p class="site-update" id="site-update" aria-label="Portfolio site revision">
+      Site update 18
+    </p>
+
     <script src="js/games/init.js"></script>
     <script src="js/games/perk-tap.js"></script>
     <script src="js/games/barber-chop.js"></script>
@@ -193,6 +212,13 @@
     <script src="js/games/split-flap.js"></script>
     <script src="js/games/florida-boy.js"></script>
     <script src="js/games/boba-quest.js"></script>
+    <script src="js/collections/collection-elcuh.js"></script>
+    <script src="js/collections/collection-festive-people.js"></script>
+    <script src="js/collections/collection-github-a.js"></script>
+    <script src="js/collections/collection-github-b.js"></script>
+    <script src="js/collections/collection-mangosteen-a.js"></script>
+    <script src="js/collections/collection-shiba.js"></script>
+    <script src="js/collections/collection-bowl-a-coin.js"></script>
     <script src="js/projects-strip.js"></script>
     <script src="js/main.js"></script>
   </body>
